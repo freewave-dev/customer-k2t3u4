@@ -281,7 +281,7 @@ h1, h2, h3, h4 {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background: url('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=2000&q=80') center/cover no-repeat;
+  background: url('https://media.freewave.dev/k2t3u4/images/unsplash-b7b647a060ea.webp') center/cover no-repeat;
   transform: scale(1.04);
   animation: heroZoom 18s var(--ease) forwards;
 }
@@ -528,7 +528,7 @@ h1, h2, h3, h4 {
 .cta-band {
   background:
     linear-gradient(135deg, rgba(31, 51, 38, 0.92) 0%, rgba(31, 51, 38, 0.86) 100%),
-    url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=2000&q=80') center/cover no-repeat;
+    url('https://media.freewave.dev/k2t3u4/images/unsplash-bb3e5f00d031.webp') center/cover no-repeat;
   color: #fff;
   border-radius: var(--radius-lg);
   padding: 3.5rem 3rem;
