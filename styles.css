@@ -212,6 +212,35 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-md);
 }
 
+/* Mobile nav toggle (hamburger) — hidden on desktop */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 0 auto;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform 0.25s var(--ease), opacity 0.2s var(--ease);
+}
+
+.site-header.menu-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.site-header.menu-open .nav-toggle span:nth-child(2) { opacity: 0; }
+.site-header.menu-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -1015,8 +1044,43 @@ h1, h2, h3, h4 {
 .fade-in.d-4 { animation-delay: 0.4s; }
 
 @media (max-width: 960px) {
-  .nav-links { display: none; }
-  .nav-links.compact { display: flex; gap: 1rem; }
+  /* Swap the header CTA for a hamburger menu */
+  .nav-cta { display: none; }
+  .nav-toggle { display: flex; }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(250, 247, 242, 0.97);
+    backdrop-filter: saturate(1.4) blur(14px);
+    -webkit-backdrop-filter: saturate(1.4) blur(14px);
+    border-bottom: 1px solid var(--line-soft);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), visibility 0.25s var(--ease);
+  }
+  .site-header.menu-open .nav-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  .nav-menu .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.5rem 0;
+  }
+  .nav-menu .nav-links a {
+    display: block;
+    padding: 0.95rem 1.5rem;
+    font-size: 1rem;
+  }
+  .nav-menu .nav-links a.active::after { display: none; }
+
   .intro-grid, .feature-row, .contact-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
